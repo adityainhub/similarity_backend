@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/contests")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://www.similarity.in")
 public class ContestController {
 
     private final ContestService contestService;

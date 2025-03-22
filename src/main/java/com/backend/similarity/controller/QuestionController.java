@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/questions")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://www.similarity.in")
 public class QuestionController {
 
     private final QuestionService questionService;

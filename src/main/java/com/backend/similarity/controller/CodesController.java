@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/codes")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://www.similarity.in")
 public class CodesController {
 
     private final CodesService codesService;
