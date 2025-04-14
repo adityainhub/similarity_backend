@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/submissions")
-@CrossOrigin(origins = "https://www.similarity.in")
 public class SubmissionsController {
 
     private final ResultsService resultsService;
