@@ -1,7 +1,6 @@
 package com.backend.similarity.service;
 
 import com.backend.similarity.dto.QuestionDTO;
-import com.backend.similarity.model.Contest;
 import com.backend.similarity.model.Question;
 import com.backend.similarity.repository.ContestRepository;
 import com.backend.similarity.repository.QuestionRepository;
