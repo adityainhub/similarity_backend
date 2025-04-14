@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/codes")
-@CrossOrigin(origins = "https://www.similarity.in")
 public class CodesController {
 
     private final CodesService codesService;

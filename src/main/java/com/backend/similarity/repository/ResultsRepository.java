@@ -1,8 +1,8 @@
 package com.backend.similarity.repository;
 
-import com.backend.similarity.model.Question;
 import com.backend.similarity.model.Results;
 import com.backend.similarity.model.ResultsId;
+import com.backend.similarity.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -34,5 +34,24 @@ public interface ResultsRepository extends JpaRepository<Results, ResultsId> {
             "SELECT r.username2 as username, r.rank2 as rank, r.language as language, r.submission2Time as submissionTime " +
             "FROM Results r WHERE r.question.questionId = :questionId")
     List<Object[]> findSubmissionDataByQuestionId(@Param("questionId") Integer questionId);
+
+    List<Results> findByUsername1OrUsername2(String username1, String username2);
+
+    @Query("SELECT DISTINCT r.question FROM Results r " +
+           "WHERE r.contestId = :contestId " +
+           "AND (r.username1 = :username OR r.username2 = :username)")
+    List<Question> findDistinctQuestionsByContestAndUsername(
+        @Param("contestId") String contestId, 
+        @Param("username") String username
+    );
+
+    @Query("SELECT r FROM Results r WHERE r.contestId = :contestId " +
+           "AND r.question.questionId = :questionId " +
+           "AND (r.username1 = :username OR r.username2 = :username)")
+    List<Results> findByContestQuestionAndUsername(
+        @Param("contestId") String contestId,
+        @Param("questionId") Integer questionId,
+        @Param("username") String username
+    );
 }
 
