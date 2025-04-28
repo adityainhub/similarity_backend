@@ -88,7 +88,8 @@ public class ResultsService {
                     isUsername1 ? result.getRank1() : result.getRank2(),
                     isUsername1 ? result.getSubmissionId1() : result.getSubmissionId2(),
                     result.getQuestion().getQuestionId(),
-                    result.getLanguage()
+                    result.getLanguage(),
+                    isUsername1 ? result.getSubmission1Time() : result.getSubmission2Time()
                 );
             }
             
@@ -99,14 +100,15 @@ public class ResultsService {
                 isUsername1 ? result.getSubmissionId2() : result.getSubmissionId1(),
                 result.getQuestion().getQuestionId(),
                 result.getLanguage(),
-                result.getAverageSimilarity()
+                result.getAverageSimilarity(),
+                isUsername1 ? result.getSubmission2Time() : result.getSubmission1Time()
             );
             matchedUsers.add(matchedUser);
         }
         
         // If no results found, create empty main user details
         if (mainUser == null) {
-            mainUser = new UserMatchDetailsDTO.UserDetails(username, null, null, questionId, null);
+            mainUser = new UserMatchDetailsDTO.UserDetails(username, null, null, questionId, null, null);
         }
         
         return new UserMatchDetailsDTO(mainUser, matchedUsers);
