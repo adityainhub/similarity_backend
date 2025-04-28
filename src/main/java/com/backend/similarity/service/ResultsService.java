@@ -90,6 +90,7 @@ public class ResultsService {
                     result.getQuestion().getQuestionId(),
                     result.getLanguage(),
                     isUsername1 ? result.getSubmission1Time() : result.getSubmission2Time()
+
                 );
             }
             
@@ -102,6 +103,7 @@ public class ResultsService {
                 result.getLanguage(),
                 result.getAverageSimilarity(),
                 isUsername1 ? result.getSubmission2Time() : result.getSubmission1Time()
+
             );
             matchedUsers.add(matchedUser);
         }
@@ -109,6 +111,7 @@ public class ResultsService {
         // If no results found, create empty main user details
         if (mainUser == null) {
             mainUser = new UserMatchDetailsDTO.UserDetails(username, null, null, questionId, null, null);
+
         }
         
         return new UserMatchDetailsDTO(mainUser, matchedUsers);

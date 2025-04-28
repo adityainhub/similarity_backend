@@ -1,6 +1,7 @@
 package com.backend.similarity.dto;
 
 import java.util.List;
+
 import java.time.LocalDateTime;
 
 public class UserMatchDetailsDTO {
@@ -14,6 +15,7 @@ public class UserMatchDetailsDTO {
         private String submissionId;
         private Integer questionId;
         private String language;
+
         private LocalDateTime submissionTime;
 
         public UserDetails(String username, Integer rank, String submissionId, Integer questionId, String language, LocalDateTime submissionTime) {
@@ -23,6 +25,7 @@ public class UserMatchDetailsDTO {
             this.questionId = questionId;
             this.language = language;
             this.submissionTime = submissionTime;
+
         }
 
         // Getters and setters
@@ -73,6 +76,7 @@ public class UserMatchDetailsDTO {
         public void setSubmissionTime(LocalDateTime submissionTime) {
             this.submissionTime = submissionTime;
         }
+
     }
 
     public static class MatchedUserDetails extends UserDetails {
@@ -82,6 +86,7 @@ public class UserMatchDetailsDTO {
                                 Integer questionId, String language, float similarity,
                                 LocalDateTime submissionTime) {
             super(username, rank, submissionId, questionId, language, submissionTime);
+
             this.similarity = similarity;
         }
 
