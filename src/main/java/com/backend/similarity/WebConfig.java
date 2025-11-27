@@ -16,7 +16,7 @@ public class WebConfig {
                         .allowedOrigins(
                                 "https://www.similarity.in"
                         )
-                        .allowedMethods("GET", "OPTIONS")
+                        .allowedMethods("GET", "POST", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
